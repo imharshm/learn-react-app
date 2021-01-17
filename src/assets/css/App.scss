@@ -1,0 +1,22 @@
+//file imports
+@import "Custom";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-dark {
+  padding: 1rem;
+  .navbar-brand {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0;
+  }
+}
