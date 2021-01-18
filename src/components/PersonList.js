@@ -1,79 +1,71 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
-import { Capitalize, ImageSrc } from "../utils/Common";
+import { Capitalize } from "../utils/Common";
 
-class PersonList extends Component {
-  constructor(props) {
-    super(props);
+const PersonList = () => {
+  const [persons, setPersons] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-    this.state = {
-      persons: [],
-      errorMsg: "",
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     axios
       .get("https://randomuser.me/api/")
       .then((response) => {
         console.log("API Response", response);
-        this.setState({ persons: response.data.results });
+        setPersons([...response.data.results]);
       })
       .catch((error) => {
         console.log("Api Error", error);
-        this.setState({ errorMsg: "API Error" });
+        setErrorMsg("API Error");
       });
-  }
+  }, []);
 
-  render() {
-    const { persons, errorMsg } = this.state;
-    return (
-      <div className="persons-list">
-        <h2>List of Persons</h2>
+  return (
+    <div className="persons-list">
+      <h3 className="mb-3">List of Persons</h3>
 
-        {errorMsg ? (
-          <div>{errorMsg}</div>
-        ) : (
-          <Table>
-            <thead>
-              <tr>
-                <th>Sr. NO</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>DOB</th>
-              </tr>
-            </thead>
-            <tbody>
-              {persons.length
-                ? persons.map((person, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        {person.name.title +
-                          ". " +
-                          person.name.first +
-                          " " +
-                          person.name.last}
-                      </td>
-                      <td>{Capitalize(person.gender)}</td>
-                      <td>
-                        Date: {person.dob.date}
-                        <span className="px-3"></span>
-                        Age: {person.dob.age}
-                      </td>
-                      <td>
-                        <img src={ImageSrc("/bitmap.png")} alt="user" />
-                      </td>
-                    </tr>
-                  ))
-                : null}
-            </tbody>
-          </Table>
-        )}
-      </div>
-    );
-  }
-}
+      {errorMsg ? (
+        <div>{errorMsg}</div>
+      ) : (
+        <Table>
+          <thead>
+            <tr>
+              <th>Sr. NO</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>User Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            {persons.length
+              ? persons.map((person, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>
+                      {person.name.title +
+                        ". " +
+                        person.name.first +
+                        " " +
+                        person.name.last}
+                    </td>
+                    <td>{Capitalize(person.gender)}</td>
+                    <td>
+                      Date: {person.dob.date}
+                      <span className="px-3"></span>
+                      Age: {person.dob.age}
+                    </td>
+                    <td>
+                      <img src={person.picture.medium} alt="user" />
+                    </td>
+                  </tr>
+                ))
+              : null}
+          </tbody>
+        </Table>
+      )}
+    </div>
+  );
+};
 
 export default PersonList;

@@ -3,5 +3,5 @@ export const Capitalize = (str) => {
 };
 
 export const ImageSrc = (imgPath) => {
-  return require(`../assets/img${imgPath}`);
+  return require(imgPath);
 };
