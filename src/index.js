@@ -4,11 +4,14 @@ import App from "./App";
 import "./assets/css/App.scss";
 import reportWebVitals from "./reportWebVitals";
 import Header from "./components/Header";
+import { Container } from "react-bootstrap";
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <App />
+    <Container>
+      <App />
+    </Container>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 import History from "../utils/History";
 
 const Header = () => {
@@ -9,7 +9,9 @@ const Header = () => {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand onClick={handleClick}>imharshm</Navbar.Brand>
+      <Container className="px-3">
+        <Navbar.Brand onClick={handleClick}>imharshm</Navbar.Brand>
+      </Container>
     </Navbar>
   );
 };

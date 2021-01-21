@@ -5,3 +5,8 @@ export const Capitalize = (str) => {
 export const ImageSrc = (imgPath) => {
   return require(imgPath);
 };
+
+// export const SvgIcon = (imgName) => {
+//   const SvgIcon = React.lazy(() => import(`@lazsa/common/assets/img/svg/${imgName}`));
+//   return <SvgIcon />;
+// };

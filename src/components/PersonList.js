@@ -21,13 +21,13 @@ const PersonList = () => {
   }, []);
 
   return (
-    <div className="persons-list">
+    <div className="card border-0 p-4 persons-list">
       <h3 className="mb-3">List of Persons</h3>
 
       {errorMsg ? (
         <div>{errorMsg}</div>
       ) : (
-        <Table>
+        <Table bordered>
           <thead>
             <tr>
               <th>Sr. NO</th>
