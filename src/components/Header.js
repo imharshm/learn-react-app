@@ -4,7 +4,7 @@ import History from "../utils/History";
 
 const Header = () => {
   const handleClick = () => {
-    History.push("/");
+    History.push("/Persons");
   };
 
   return (
