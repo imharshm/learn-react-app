@@ -1,70 +1,80 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here is the step by step guide, how to deploy react app on github pages?
+------------------------------------------------------------------------
 
-## Available Scripts
+1. First create a repository named my-app using create-react-app.
 
-In the project directory, you can run:
 
-### `npm start`
+>
+>     npm init react-app learn-react-app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ 2. We need to install GitHub Pages package as a dev-dependency.
 
-### `npm test`
+      
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+>     cd learn-react-app
 
-### `npm run build`
+ 
+>     npm install gh-pages --save-dev
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ 3. Add properties to package.json file.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+  The first property we need to add at the top level homepage second we will define this as a string and the value will be 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+>
+>     `"http://{username}.github.io/{repo-name}" {username}`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+is your GitHub username, and {repo-name} is the name of the GitHub repository you created it will look like this :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+>
+>     "homepage": "http://imharshm.github.io/learn-react-app"
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Second in the existing `scripts` property we to need to add `predeploy` and `deploy`.
 
-## Learn More
+>     "scripts": {
+>     //...
+>     "predeploy":
+>      "npm run build",
+>     "deploy": "gh-pages -d build"
+>     }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Create a Github repository and initialize it and add it as a remote in your local git repository.
 
-### Code Splitting
+Now, create a remote GitHub repository with your app name and go back initialize this
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    
 
-### Analyzing the Bundle Size
+>     git init
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+add it as remote
 
-### Making a Progressive Web App
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+>     git remote add origin git@github.com:imharshm/learn-react-app.git
 
-### Advanced Configuration
+ 
+5. Now deploy it to GitHub Pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+just run the following command :
 
-### Deployment
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+>     npm run deploy
 
-### `npm run build` fails to minify
+this command will create a branch named gh-pages this branch host your app, and homepage property you created in package.json file hold your link for a live preview, or you can open the branch setting scroll down to GitHub Pages section you will find this:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
+
+>     https://imharshm.github.io/learn-react-app/
+
+
+
+6. commit and push your commit to GitHub. Optionally
+
+>     git add .
+>     git commit -m "Your awesome message"
+>     git push origin master
