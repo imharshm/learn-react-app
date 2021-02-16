@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Table } from "react-bootstrap";
-import { Capitalize } from "../utils/Methods";
-import CustomTable from '../common/Table';
-
+import { Capitalize, getData } from "../utils/Methods";
+import CustomTable from "../common/Table";
 
 const tableHeader = [
   {
-      id: 1,
-      name: 'Name'
-          
+    id: 1,
+    name: "Name",
   },
   {
-      id: 2,
-      name: 'Mobile'
+    id: 2,
+    name: "Mobile",
   },
   {
-      id: 3,
-      name: 'Address'
-  }
-]
+    id: 3,
+    name: "Address",
+  },
+];
 
 const PersonList = () => {
-  const [persons, setPersons] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [persons, setPersons] = useState();
+  const [errorMsg, setErrorMsg] = useState();
 
   useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/")
-      .then((response) => {
-        console.log("API Response", response);
-        setPersons([...response.data.results]);
-      })
-      .catch((error) => {
-        console.log("Api Error", error);
-        setErrorMsg("API Error");
-      });
+    getDetails();
   }, []);
+
+  const getDetails = async () => {
+    const res = await getData("https://randomuser.me/api/");
+
+    if (res.data && res.data.results) {
+      setPersons(res.data.results);
+      console.log(res.data.results);
+    } else {
+      setErrorMsg("API Error");
+      console.log("API Error");
+    }
+  };
 
   return (
     <div className="card border-0 p-4 persons-list">
       <h3 className="mb-3">List of Persons</h3>
-
       {errorMsg ? (
         <div>{errorMsg}</div>
       ) : (
@@ -56,7 +55,7 @@ const PersonList = () => {
             </tr>
           </thead>
           <tbody>
-            {persons.length
+            {persons && persons.length
               ? persons.map((person, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
