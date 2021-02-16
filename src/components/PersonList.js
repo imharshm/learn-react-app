@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
-import { Capitalize } from "../utils/Common";
+import { Capitalize } from "../utils/Methods";
+import CustomTable from '../common/Table';
+
+
+const tableHeader = [
+  {
+      id: 1,
+      name: 'Name'
+          
+  },
+  {
+      id: 2,
+      name: 'Mobile'
+  },
+  {
+      id: 3,
+      name: 'Address'
+  }
+]
 
 const PersonList = () => {
   const [persons, setPersons] = useState("");
@@ -64,6 +82,7 @@ const PersonList = () => {
           </tbody>
         </Table>
       )}
+      <CustomTable tableHeader={tableHeader}></CustomTable>
     </div>
   );
 };

@@ -29,6 +29,9 @@ $theme-colors: (
 // @import "bootstrap/dist/css/bootstrap.min.css"; //for css
 @import "~bootstrap/scss/bootstrap"; //for sass
 
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
 // custom variables
 $bg-light: #f3f2ee;
 $secondary: #4b4b4b;
@@ -50,9 +53,12 @@ body {
   background-color: var(--bg-light);
 }
 
+.main-container {
+  height: calc(100vh - 62px);
+}
+
 .navbar-dark {
   padding: 1rem;
-  margin-bottom: 1.5rem;
   .navbar-brand {
     cursor: pointer;
     font-size: 30px;
