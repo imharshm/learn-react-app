@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Capitalize, getData } from "../utils/Methods";
-import CustomTable from "../common/Table";
-
-const tableHeader = [
-  {
-    id: 1,
-    name: "Name",
-  },
-  {
-    id: 2,
-    name: "Mobile",
-  },
-  {
-    id: 3,
-    name: "Address",
-  },
-];
 
 const PersonList = () => {
   const [persons, setPersons] = useState();
@@ -59,13 +43,7 @@ const PersonList = () => {
               ? persons.map((person, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>
-                      {person.name.title +
-                        ". " +
-                        person.name.first +
-                        " " +
-                        person.name.last}
-                    </td>
+                    <td>{person.name.title + ". " + person.name.first + " " + person.name.last}</td>
                     <td>{Capitalize(person.gender)}</td>
                     <td>
                       Date: {person.dob.date}
@@ -81,7 +59,6 @@ const PersonList = () => {
           </tbody>
         </Table>
       )}
-      <CustomTable tableHeader={tableHeader}></CustomTable>
     </div>
   );
 };

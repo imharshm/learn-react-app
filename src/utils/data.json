@@ -1,10 +1,13 @@
 {
-  "Employee": {
-    "AddNew": {
-      "title": "Add new employee",
-      "subTitle": "Add recently joined employees here",
-      "action": "Add",
-      "cancel": "Cancel"
+  "website": {
+    "title": "imharshm",
+    "Employee": {
+      "AddNew": {
+        "title": "Add new employee",
+        "subTitle": "Add recently joined employees here",
+        "action": "Add",
+        "cancel": "Cancel"
+      }
     }
   }
 }

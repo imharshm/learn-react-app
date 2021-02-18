@@ -4,10 +4,8 @@ export default createGlobalStyle`
 ${({ theme }) => css`
   html {
     body {
-      #root {
-        background: ${theme.colors.background};
-        color: ${theme.colors.black};
-      }
+      background: ${theme.colors.background};
+      color: ${theme.colors.black};
     }
   }
 `}

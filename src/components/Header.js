@@ -1,21 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import History from "../utils/History";
+import { AppContext } from "../theme/AppProvider";
+import data from "../utils/data.json";
 
 const Header = () => {
   const handleClick = (e) => {
     History.push(e.target.attributes.getNamedItem("data-redirect").value);
   };
 
+  const { toggleTheme, themeMode } = useContext(AppContext);
+  const handleThemeChange = (e) => {
+    console.log(e);
+    toggleTheme();
+  };
+
   return (
     <Navbar bg="dark" variant="dark">
       <Container className="px-3">
         <Navbar.Brand onClick={(e) => handleClick(e)} data-redirect="/">
-          imharshm
+          {data.website.title}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
+            <Nav.Link button onClick={(e) => handleThemeChange(e)}>
+              <i className={`fa fa-${themeMode === "darkTheme" ? "sun-o" : "moon-o"}`}></i>
+            </Nav.Link>
             <Nav.Link onClick={(e) => handleClick(e)} data-redirect="/contact">
               Contact
             </Nav.Link>
@@ -28,10 +39,6 @@ const Header = () => {
               <NavDropdown.Item>Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

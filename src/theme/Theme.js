@@ -1,24 +1,25 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    lightTheme: {
-      colors: {
-        background: "radial-gradient(grey, black)",
-        black: "black",
-        white: "white",
-        blue: "#a0e9fd",
-        lightBlue: "#caf3fe",
-        secondary: "radial-gradient(green, yellow)",
-      },
-      transition: "0.3s",
+  lightTheme: {
+    colors: {
+      background: "#fafafa",
+      black: "rgba(0, 0, 0, 0.87)",
+      white: "white",
+      blue: "#a0e9fd",
+      lightBlue: "#caf3fe",
+      secondary: "radial-gradient(green, yellow)",
     },
-    darkTheme: {
-      colors: {
-        background: "radial-gradient(grey, white)",
-        black: "white",
-        white: "black",
-        blue: "#a0e9fd",
-        lightBlue: "#caf3fe",
-        secondary: "radial-gradient(yellow, green)",
-      },
-      transition: "0.3s",
+    transition: "0.3s",
+  },
+  darkTheme: {
+    colors: {
+      background: "#303030",
+      black: "#ffffff",
+      white: "black",
+      blue: "#a0e9fd",
+      lightBlue: "#caf3fe",
+      secondary: "radial-gradient(yellow, green)",
     },
-  };
+    transition: "0.3s",
+  },
+};
