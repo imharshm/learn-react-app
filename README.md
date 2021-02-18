@@ -1,6 +1,7 @@
 
 Here is the step by step guide, how to deploy react app on github pages?
 ------------------------------------------------------------------------
+copied from - https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f
 
 1. First create a repository named my-app using create-react-app.
 
