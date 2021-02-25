@@ -7,7 +7,7 @@ addons.setConfig({
     brandImage: "",
     colorPrimary: "hotpink",
     colorSecondary: "deepskyblue",
-    textColor: "black",
+    textColor: "#ffffff",
     textInverseColor: "rgba(255,255,255,0.9)",
   }),
   selectedPanel: 2,
