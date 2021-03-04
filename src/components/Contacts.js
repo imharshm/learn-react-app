@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import data from "../utils/data.json";
+import { postData } from "../utils/Methods";
 
 const Contacts = () => {
   const [inputData, setInputData] = useState({});
@@ -19,17 +20,18 @@ const Contacts = () => {
     console.log("Contact form data", inputData);
     event.preventDefault();
     const contactData = inputData;
-    axios
-      .post(`https://react.indexial.in/api/contacts.php/create`, {
-        contactData,
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // axios
+    //   .post(`https://react.indexial.in/api/contacts.php/create`, {
+    //     contactData,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    postData("https://react.indexial.in/api/contacts.php/create", contactData);
   };
 
   useEffect(() => {

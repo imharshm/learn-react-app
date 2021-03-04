@@ -23,3 +23,14 @@ export const getData = (url) => {
       return error;
     });
 };
+
+export const postData = (url, data) => {
+  return axios
+    .post(url, data)
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
