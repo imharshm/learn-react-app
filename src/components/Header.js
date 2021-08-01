@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" fixed="top">
       <Container className="px-3">
         <Navbar.Brand onClick={(e) => handleClick(e)} data-redirect="/">
           {data.website.title}
@@ -32,6 +32,9 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link onClick={(e) => handleClick(e)} data-redirect="/user-list">
               Users
+            </Nav.Link>
+            <Nav.Link onClick={(e) => handleClick(e)} data-redirect="/images">
+              Images
             </Nav.Link>
             <NavDropdown title="Profile" id="basic-nav-dropdown">
               <NavDropdown.Item>View</NavDropdown.Item>
